@@ -22,7 +22,6 @@
 
   <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
 
-  <link rel="stylesheet" href="<?= base_url() ?>/public/tema_tesis/dist/css/toastr.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -548,7 +547,7 @@
                           <div class="row" style="margin-bottom: 40px;">
                             <div class="col">
                               <form id="demoform">
-                                <select multiple="multiple" size="10" name="duallistbox_demo1[]" title="duallistbox_demo1[]">
+                                <select multiple="multiple" size="10" name="tecnico[]" title="tecnico[]">
                                   <?php foreach ($tecnico as $key) : ?>
                                     <option value="<?= $key['id_tecnico'] ?>"><?= $key['nombre'] ?></option>
                                   <?php endforeach; ?>
@@ -903,7 +902,7 @@
       }
     });
 
-    var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox({
+    var demo1 = $('select[name="tecnico[]"]').bootstrapDualListbox({
       nonSelectedListLabel: 'Técnicos disponibles',
       selectedListLabel: 'Técnicos asignados',
       preserveSelectionOnMove: 'moved',
@@ -915,7 +914,7 @@
 
     });
     $("#demoform").submit(function() {
-      alert($('[name="duallistbox_demo1[]"]').val());
+      alert($('[name="tecnico[]"]').val());
       return false;
     });
   </script>

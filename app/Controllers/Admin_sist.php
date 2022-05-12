@@ -35,6 +35,15 @@ class Admin_sist extends BaseController
         return view('Admin_sist/adminSist_view', $data);
     }
 
+    // Cargar datos y enviar con Ajax
+    /* public function read(){
+        $model = new AdminAsistModel();
+        $data = $model->mostrar_usuarios(session('area'));
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE);
+
+    } */
+
     public function add()
     {
         $model = new AdminAsistModel();;

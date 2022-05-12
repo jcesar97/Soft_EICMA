@@ -9,7 +9,7 @@ use App\Models\BitacoraModel;
 use App\Models\LoginModel;
 use PhpParser\Node\Expr\AssignOp\Concat;
 
-use function PHPUnit\Framework\isEmpty;
+use function PHPUnit\Framework\isEmpty;;
 
 class Reportes extends BaseController
 {
@@ -124,7 +124,7 @@ class Reportes extends BaseController
             'descripcion' => $this->request->getVar('descripcion'),
         ];
 
-        $info_rep = $model->info_rep($id);
+        $infRep = $model->infRep($id);
         $update = $model->update($id, $data);
         $usuario = $log->existe_email(session('email'));
 
@@ -139,28 +139,28 @@ class Reportes extends BaseController
             'detalles_disp' => $detalles_disp,
             'evento' => 'Actualizar reporte',
             'estado_anterior' =>
-            'cliente:' . $info_rep[0]['fk_cliente'] . "\n" .
-                'estado:' . $info_rep[0]['fk_estado'] . "\n" .
-                'area:' . $info_rep[0]['fk_area'] . "\n" .
-                'usuario:' . $info_rep[0]['usuario'] . "\n" .
-                'codigo:' . $info_rep[0]['codigo'] . "\n" .
-                'descripcion:' . $info_rep[0]['descripcion'] . "\n" .
-                'fecha:' . $info_rep[0]['fecha'] . "\n" .
-                'fecha_asignado:' . $info_rep[0]['fecha_asignado'] . "\n" .
-                'fecha_cancelado:' . $info_rep[0]['fecha_cancelado'] . "\n" .
-                'fecha_terminado:' . $info_rep[0]['fecha_terminado'],
+            'cliente:' . $infRep[0]['fk_cliente'] . "\n" .
+                'estado:' . $infRep[0]['fk_estado'] . "\n" .
+                'area:' . $infRep[0]['fk_area'] . "\n" .
+                'usuario:' . $infRep[0]['usuario'] . "\n" .
+                'codigo:' . $infRep[0]['codigo'] . "\n" .
+                'descripcion:' . $infRep[0]['descripcion'] . "\n" .
+                'fecha:' . $infRep[0]['fecha'] . "\n" .
+                'fecha_asignado:' . $infRep[0]['fecha_asignado'] . "\n" .
+                'fecha_cancelado:' . $infRep[0]['fecha_cancelado'] . "\n" .
+                'fecha_terminado:' . $infRep[0]['fecha_terminado'],
 
             'estado_actual' =>
             'cliente:' . $data['fk_cliente'] . "\n" .
                 'estado:' . $data['fk_estado'] . "\n" .
                 'area:' . $data['fk_area'] . "\n" .
-                'usuario:' . $info_rep[0]['usuario'] . "\n" .
+                'usuario:' . $infRep[0]['usuario'] . "\n" .
                 'codigo:' . $data['codigo'] . "\n" .
                 'descripcion:' . $data['descripcion'] . "\n" .
                 'fecha:' . $data['fecha'] . "\n" .
-                'fecha_asignado:' . $info_rep[0]['fecha_asignado'] . "\n" .
-                'fecha_cancelado:' . $info_rep[0]['fecha_cancelado'] . "\n" .
-                'fecha_terminado:' . $info_rep[0]['fecha_terminado'],
+                'fecha_asignado:' . $infRep[0]['fecha_asignado'] . "\n" .
+                'fecha_cancelado:' . $infRep[0]['fecha_cancelado'] . "\n" .
+                'fecha_terminado:' . $infRep[0]['fecha_terminado'],
 
         ]);
 
@@ -194,7 +194,7 @@ class Reportes extends BaseController
             'fecha_terminado'  =>  $form['fecha_terminado'],
         ];
 
-        $info_rep = $model->info_rep($id);
+        $infRep = $model->infRep($id);
 
         $update = $model->update($id, $data);
 
@@ -211,28 +211,28 @@ class Reportes extends BaseController
             'detalles_disp' => $detalles_disp,
             'evento' => 'Cancelar reporte',
             'estado_anterior' =>
-            'cliente:' . $info_rep[0]['fk_cliente'] . "\n" .
-                'estado:' . $info_rep[0]['fk_estado'] . "\n" .
-                'area:' . $info_rep[0]['fk_area'] . "\n" .
-                'usuario:' . $info_rep[0]['usuario'] . "\n" .
-                'codigo:' . $info_rep[0]['codigo'] . "\n" .
-                'descripcion:' . $info_rep[0]['descripcion'] . "\n" .
-                'fecha:' . $info_rep[0]['fecha'] . "\n" .
-                'fecha_asignado:' . $info_rep[0]['fecha_asignado'] . "\n" .
-                'fecha_cancelado:' . $info_rep[0]['fecha_cancelado'] . "\n" .
-                'fecha_terminado:' . $info_rep[0]['fecha_terminado'],
+            'cliente:' . $infRep[0]['fk_cliente'] . "\n" .
+                'estado:' . $infRep[0]['fk_estado'] . "\n" .
+                'area:' . $infRep[0]['fk_area'] . "\n" .
+                'usuario:' . $infRep[0]['usuario'] . "\n" .
+                'codigo:' . $infRep[0]['codigo'] . "\n" .
+                'descripcion:' . $infRep[0]['descripcion'] . "\n" .
+                'fecha:' . $infRep[0]['fecha'] . "\n" .
+                'fecha_asignado:' . $infRep[0]['fecha_asignado'] . "\n" .
+                'fecha_cancelado:' . $infRep[0]['fecha_cancelado'] . "\n" .
+                'fecha_terminado:' . $infRep[0]['fecha_terminado'],
 
             'estado_actual' =>
             'cliente:' . $data['fk_cliente'] . "\n" .
                 'estado:' . $data['fk_estado'] . "\n" .
                 'area:' . $data['fk_area'] . "\n" .
-                'usuario:' . $info_rep[0]['usuario'] . "\n" .
+                'usuario:' . $infRep[0]['usuario'] . "\n" .
                 'codigo:' . $data['codigo'] . "\n" .
                 'descripcion:' . $data['descripcion'] . "\n" .
                 'fecha:' . $data['fecha'] . "\n" .
-                'fecha_asignado:' . $info_rep[0]['fecha_asignado'] . "\n" .
+                'fecha_asignado:' . $infRep[0]['fecha_asignado'] . "\n" .
                 'fecha_cancelado:' . $data['fecha_cancelado'] . "\n" .
-                'fecha_terminado:' . $info_rep[0]['fecha_terminado'],
+                'fecha_terminado:' . $infRep[0]['fecha_terminado'],
 
         ]);
 
@@ -240,88 +240,49 @@ class Reportes extends BaseController
     }
 
     // TODO:
-    //      Funcion incompleta .
-    //      En el caso de asignar mas de un tecnico.
+    //      Agregar a la bitacora
     public function asig_tecnico()
     {
         helper(['form', 'url']);
-        $model = new ReportesModel();
-        $log = new LoginModel();
-
-
-        $id_rep = $this->request->getVar('id_reporte');
-
         $model = new ReportesTecModel();
+        $rep = new ReportesModel();
+        $log = new LoginModel();  
 
-        $data = [
-            'fk_reporte' => $this->request->getVar('id_reporte'),
-            'fk_tecnico' => $this->request->getVar('tecnico'),
-        ];
-
+        $miArray = $this->request->getVar('tecnico[]');
+        
+        foreach ($miArray as $key => $value){ 
+            $data=[
+                'fk_reporte' => $this->request->getVar('id_reporte'),
+                'fk_tecnico' => $value,
+            ];
         $save = $model->asig_tec($data);
 
-        $aux = $model->where('id_reporte', $id_rep)->first(); //
+    }
 
-        $data = [
-            'fk_cliente' => $aux['fk_cliente'],
+
+        $infRep = $rep->idReporte($this->request->getVar('id_reporte'));
+
+        $datos = [
+            'fk_cliente' => $infRep[0]['fk_cliente'],
             'fk_estado' => 2,
-            'fk_area'  => $aux['fk_area'],
-            'fecha' => $aux['fecha'],
-            'codigo'  => $aux['codigo'],
-            'descripcion' => $aux['descripcion'],
-            'fecha_asignado' => $this->request->getVar('fecha_asig'),
-            'fecha_cancelado' => $aux['fecha_cancelado'],
-            'fecha_terminado' => $aux['fecha_terminado'],
+            'fk_area' => $infRep[0]['fk_area'],
+            'usuario' => $infRep[0]['usuario'],
+            'fecha' => $infRep[0]['fecha'],
+            'codigo' => $infRep[0]['codigo'],
+            'descripcion' => $infRep[0]['descripcion'],
+            'fecha_asig' => $this->request->getVar('fecha_asig'),
+            'fecha_cancelado' => $infRep[0]['fecha_cancelado'],
+            'fecha_terminado'=> $infRep[0]['fecha_terminado'],
         ];
 
-        $info_rep = $model->info_rep($id_rep);
-
-        $update = $model->update($id_rep, $data);
-
-        $usuario = $log->existe_email(session('email'));
-
-        $ip = $_SERVER['REMOTE_ADDR'];
-        $detalles_disp = $_SERVER['HTTP_USER_AGENT'];
-        $uri = $_SERVER['REQUEST_URI'];
-
-        $this->bitacora->save([
-            'id_usuario' => $usuario[0]['id_user'],
-            'direccion_ip' => $ip,
-            'uri' => $uri,
-            'detalles_disp' => $detalles_disp,
-            'evento' => 'Cancelar reporte',
-            'estado_anterior' =>
-            'cliente:' . $info_rep[0]['fk_cliente'] . "\n" .
-                'estado:' . $info_rep[0]['fk_estado'] . "\n" .
-                'area:' . $info_rep[0]['fk_area'] . "\n" .
-                'usuario:' . $info_rep[0]['usuario'] . "\n" .
-                'codigo:' . $info_rep[0]['codigo'] . "\n" .
-                'descripcion:' . $info_rep[0]['descripcion'] . "\n" .
-                'fecha:' . $info_rep[0]['fecha'] . "\n" .
-                'fecha_asignado:' . $info_rep[0]['fecha_asignado'] . "\n" .
-                'fecha_cancelado:' . $info_rep[0]['fecha_cancelado'] . "\n" .
-                'fecha_terminado:' . $info_rep[0]['fecha_terminado'],
-
-            'estado_actual' =>
-            'cliente:' . $data['fk_cliente'] . "\n" .
-                'estado:' . $data['fk_estado'] . "\n" .
-                'area:' . $data['fk_area'] . "\n" .
-                'usuario:' . $info_rep[0]['usuario'] . "\n" .
-                'codigo:' . $data['codigo'] . "\n" .
-                'descripcion:' . $data['descripcion'] . "\n" .
-                'fecha:' . $data['fecha'] . "\n" .
-                'fecha_asignado:' . $data['fecha_asignado'] . "\n" .
-                'fecha_cancelado:' . $info_rep[0]['fecha_cancelado'] . "\n" .
-                'fecha_terminado:' . $info_rep[0]['fecha_terminado'],
-
-        ]);
+        $update =  $rep->update($infRep[0]['id_reporte'], $datos);
 
         return redirect()->to('Reportes/index');
     }
 
     // FIXME:
     //      Funcion incompleta .
-    //      Esta comiendo el metodo.
+    //      Esta comiendo mierda el metodo.
     public function cerrar()
     {
         $model = new ReportesModel();
@@ -344,7 +305,7 @@ class Reportes extends BaseController
             'fecha_terminado'  =>  $this->request->getVar('fecha_cierre'),
         ];
 
-        $info_rep = $model->info_rep($id);
+        $infRep = $model->infRep($id);
 
         $update = $model->update($id, $data);
 
@@ -361,27 +322,27 @@ class Reportes extends BaseController
             'detalles_disp' => $detalles_disp,
             'evento' => 'Cancelar reporte',
             'estado_anterior' =>
-            'cliente:' . $info_rep[0]['fk_cliente'] . "\n" .
-                'estado:' . $info_rep[0]['fk_estado'] . "\n" .
-                'area:' . $info_rep[0]['fk_area'] . "\n" .
-                'usuario:' . $info_rep[0]['usuario'] . "\n" .
-                'codigo:' . $info_rep[0]['codigo'] . "\n" .
-                'descripcion:' . $info_rep[0]['descripcion'] . "\n" .
-                'fecha:' . $info_rep[0]['fecha'] . "\n" .
-                'fecha_asignado:' . $info_rep[0]['fecha_asignado'] . "\n" .
-                'fecha_cancelado:' . $info_rep[0]['fecha_cancelado'] . "\n" .
-                'fecha_terminado:' . $info_rep[0]['fecha_terminado'],
+            'cliente:' . $infRep[0]['fk_cliente'] . "\n" .
+                'estado:' . $infRep[0]['fk_estado'] . "\n" .
+                'area:' . $infRep[0]['fk_area'] . "\n" .
+                'usuario:' . $infRep[0]['usuario'] . "\n" .
+                'codigo:' . $infRep[0]['codigo'] . "\n" .
+                'descripcion:' . $infRep[0]['descripcion'] . "\n" .
+                'fecha:' . $infRep[0]['fecha'] . "\n" .
+                'fecha_asignado:' . $infRep[0]['fecha_asignado'] . "\n" .
+                'fecha_cancelado:' . $infRep[0]['fecha_cancelado'] . "\n" .
+                'fecha_terminado:' . $infRep[0]['fecha_terminado'],
 
             'estado_actual' =>
             'cliente:' . $data['fk_cliente'] . "\n" .
                 'estado:' . $data['fk_estado'] . "\n" .
                 'area:' . $data['fk_area'] . "\n" .
-                'usuario:' . $info_rep[0]['usuario'] . "\n" .
+                'usuario:' . $infRep[0]['usuario'] . "\n" .
                 'codigo:' . $data['codigo'] . "\n" .
                 'descripcion:' . $data['descripcion'] . "\n" .
                 'fecha:' . $data['fecha'] . "\n" .
-                'fecha_asignado:' . $info_rep[0]['fecha_asignado'] . "\n" .
-                'fecha_cancelado:' . $info_rep[0]['fecha_cancelado'] . "\n" .
+                'fecha_asignado:' . $infRep[0]['fecha_asignado'] . "\n" .
+                'fecha_cancelado:' . $infRep[0]['fecha_cancelado'] . "\n" .
                 'fecha_terminado:' . $data['fecha_terminado'],
 
         ]);

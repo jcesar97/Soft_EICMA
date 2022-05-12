@@ -34,16 +34,5 @@ class ReportesTecModel extends Model
         return $sql->getResultArray();
     }    
 
-   /*  public function area()
-    {
-        $sql = $this->db->query("SELECT reporte.fk_area as 'area' FROM reporte WHERE reporte.id_reporte = 86");
-        return $sql->getResultArray();
-    } */
-    
-    /* public function tecnico_x_area($id)
-    {
-    $sql = $this->db->query("SELECT nom_tecnicos.id_tecnico, nom_tecnicos.nombre FROM nom_tecnicos WHERE nom_tecnicos.fk_area = $id");
-        return $sql->getResultArray();
-    }
- */
+ 
 }

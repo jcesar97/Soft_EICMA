@@ -69,6 +69,12 @@ class ReportesModel extends Model
         return $sql->getResultArray();
     }
 
+    public function idReporte($id){
+        $sql = $this->db->query("SELECT * FROM reporte WHERE reporte.id_reporte = '$id'");
+
+        return $sql->getResultArray();
+    }
+
     public function insertar_prec_serv($data)
     {
         if ($this->db->table($this->table)->insert($data)) {
@@ -84,14 +90,6 @@ class ReportesModel extends Model
         return $sql->getResultArray();
     }   
     
-    public function validar_asig()
-    {
-        $sql = $this->db->query("SELECT COUNT(reporte_tecnico.fk_tecnico) FROM reporte_tecnico JOIN reporte WHERE 
-                                 reporte_tecnico.fk_reporte = reporte.id_reporte ");
-        return $sql->getResultArray();
-        
-    }
-
     public function info_rep($id){
         $sql = $this->db->query("SELECT * FROM reporte WHERE reporte.id_reporte = '$id'");
         return $sql->getResultArray();

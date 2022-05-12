@@ -9,9 +9,9 @@
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
+  
   <link rel="stylesheet" href="<?= base_url() ?>/public/tema_tesis/plugins/fontawesome-free/css/all.min.css">
-  <link rel="stylesheet" href="<?= base_url() ?>/public/tema_tesis/plugins/fontawesome-free/css/styles.css">
+ 
   <!-- DataTables -->
   <link rel="stylesheet" href="<?= base_url() ?>/public/tema_tesis/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>/public/tema_tesis/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -20,9 +20,6 @@
   <link rel="stylesheet" href="<?= base_url() ?>/public/tema_tesis/dist/css/adminlte.min.css">
 
   <link rel="" href="https://cdn.datatables.net/fixedheader/3.1.6/css/fixedHeader.dataTables.min.css">
-
-  <link rel="stylesheet" href="<?= base_url() ?>/public/tema_tesis/dist/css/toastr.min.css">
-  <!-- <link rel="stylesheet" href="<?= base_url() ?>/public/tema_tesis/dist/css/form_validation/form_val.css"> -->
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -220,27 +217,27 @@
                               <option value="<?= $key['id_rol']; ?>"><?= $key['tipo_rol']; ?></option>
                             <?php endforeach; ?>
                           </select>
-                          <small></small>
+                          <div class="valid-message"></div>
                         </div>
                         <div class="col-12 col-sm-6">
                           <div class="form-group">
                             <label for="text">Fecha de creación:</label>
                             <input type="date" name="fecha_creacion" class="form-control" id="fecha_creacion" placeholder="Fecha">
-                            <small></small>
+                            <div class="valid-message"></div>
                           </div>
                         </div>
                         <div class="col-12 col-sm-6">
                           <div class="form-group">
                             <label for="inputState">Nombre:</label>
                             <input type="text" class="form-control" id="nombre" name="nombre">
-                            <small></small>
+                            <div class="valid-message"></div>
                           </div>
                         </div>
                         <div class="col-12 col-sm-6">
                           <div class="form-group">
                             <label for="text">Apellidos:</label>
                             <input type="text" class="form-control" id="apellidos" name="apellidos">
-                            <small></small>
+                            <div class="valid-message"></div>
                           </div>
                         </div>
                         <div class="col-12">
@@ -251,27 +248,27 @@
                               <option value="<?= $key['id_area']; ?>"><?= $key['nombre']; ?></option>
                             <?php endforeach; ?>
                           </select>
-                          <small></small>
+                          <div class="valid-message"></div>
                         </div>
                         <div class="col-lg-12 col-sm-6">
                           <div class="form-group">
                             <label for="text">Email:</label>
                             <input type="text" class="form-control" id="email" name="email">
-                            <small></small>
+                            <div class="valid-message"></div>
                           </div>
                         </div>
                         <div class="col-lg-12 col-sm-6">
                           <div class="form-group">
                             <label for="text">Contraseña:</label>
                             <input type="password" class="form-control" id="password" name="password">
-                            <small></small>
+                            <div class="valid-message"></div>
                           </div>
                         </div>
                         <div class="col-lg-12 col-sm-6">
                           <div class="form-group">
                             <label for="text">Confirmar contraseña:</label>
                             <input type="password" class="form-control" id="conf_pass" name="conf_pass">
-                            <small></small>
+                            <div class="valid-message"></div>
                           </div>
                         </div>
                       </div>
@@ -423,7 +420,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php foreach ($usuarios as $key) : ?>
+                <?php foreach ($usuarios as $key) : ?>
                     <tr id_user="<?php echo $key['id_user']; ?>">
                       <td><?php echo $key['nombre']; ?></td>
                       <td><?php echo $key['apellidos']; ?></td>
@@ -497,8 +494,6 @@
  
   <!-- Carga js admin_sist -->
   <script src="<?= base_url() ?>/public/tema_tesis/dist/js/cruds/admin_sist.js"></script>
-  <script src="<?= base_url() ?>/public/tema_tesis/dist/js/toastr.min.js"></script>
-  <script src="<?= base_url() ?>/public/tema_tesis/dist/js/form_validation/form_val.js"></script>
 </body>
 
 </html>
