@@ -87,10 +87,11 @@ class ReportesModel extends Model
     public function ultimo_codigo()
     {
         $sql = $this->db->query("SELECT id_reporte FROM reporte ORDER BY id_reporte DESC LIMIT 1");
+       
         return $sql->getResultArray();
     }   
     
-    public function info_rep($id){
+    public function infRep($id){
         $sql = $this->db->query("SELECT * FROM reporte WHERE reporte.id_reporte = '$id'");
         return $sql->getResultArray();
     }

@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url() ?>/public/tema_tesis/plugins/fontawesome-free/css/all.min.css">
-  <link rel="stylesheet" href="<?= base_url() ?>/public/tema_tesis/plugins/fontawesome-free/css/styles.css">
   <!-- DataTables -->
   <link rel="stylesheet" href="<?= base_url() ?>/public/tema_tesis/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>/public/tema_tesis/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
@@ -378,12 +377,7 @@
                         </div>
                         <div class="col-12 col-sm-6">
                           <label for="inputState">Estado:</label>
-                          <select id="estado" name="estado" class="form-control">
-                            <option selected>Seleccione una estado</option>
-                            <?php foreach ($estado as $key) : ?>
-                              <option value="<?= $key['id_estado'] ?>"><?= $key['nombre'] ?></option>
-                            <?php endforeach; ?>
-                          </select>
+                          <input required type="text" class="form-control fecha" value="Nuevo">
                         </div>
                         <div class="col-12 col-sm-6">
                           <label for="inputState">Área:</label>
@@ -621,7 +615,7 @@
                     <h3 class="modal-title text-center" id="showModal">Detalles del reporte</h3>
                   </div>
                   <div id="imprime" class="modal-body">
-                    <form id="showReporte" name="showReporte" method="post">
+                    <form id="showReporte" name="showReporte" action="<?php echo site_url('Reportes/show'); ?>" method="post">
                       <input type="hidden" name="id_reporte" id="id_reporte" />
                       <div class="row">
                         <div class="col-12 col-sm-6">

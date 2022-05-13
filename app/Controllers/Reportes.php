@@ -51,9 +51,16 @@ class Reportes extends BaseController
 
         $codigo = $model->ultimo_codigo();
 
+        /*if ($codigo[0]['id_reporte'] == null) {
+            $cod = 0;
+        }
+        else{
+            $cod = $codigo[0]['id_reporte'];
+        } */
+
         $data = [
             'fk_cliente' => $this->request->getVar('cliente'),
-            'fk_estado' => $this->request->getVar('estado'),
+            'fk_estado' => 1,
             'fk_area'  => $this->request->getVar('area'),
             'usuario' => session('nombre'),
             'fecha' => $this->request->getVar('fecha'),
@@ -171,7 +178,7 @@ class Reportes extends BaseController
             echo json_encode(array("status" => false, 'data' => $data));
         }
     }
-    
+
     public function cancelar()
     {
         helper(['form', 'url']);
@@ -246,23 +253,22 @@ class Reportes extends BaseController
         helper(['form', 'url']);
         $model = new ReportesTecModel();
         $rep = new ReportesModel();
-        $log = new LoginModel();  
+        $log = new LoginModel();
 
         $miArray = $this->request->getVar('tecnico[]');
-        
-        foreach ($miArray as $key => $value){ 
-            $data=[
+
+        foreach ($miArray as $key => $value) {
+            $data = [
                 'fk_reporte' => $this->request->getVar('id_reporte'),
                 'fk_tecnico' => $value,
             ];
-        $save = $model->asig_tec($data);
+            $save = $model->asig_tec($data);
+        }
 
-    }
+        $id = $this->request->getVar('id_reporte');
+        $infRep = $rep->infRep($id);
 
-
-        $infRep = $rep->idReporte($this->request->getVar('id_reporte'));
-
-        $datos = [
+        $data = [
             'fk_cliente' => $infRep[0]['fk_cliente'],
             'fk_estado' => 2,
             'fk_area' => $infRep[0]['fk_area'],
@@ -272,10 +278,18 @@ class Reportes extends BaseController
             'descripcion' => $infRep[0]['descripcion'],
             'fecha_asig' => $this->request->getVar('fecha_asig'),
             'fecha_cancelado' => $infRep[0]['fecha_cancelado'],
-            'fecha_terminado'=> $infRep[0]['fecha_terminado'],
+            'fecha_terminado' => $infRep[0]['fecha_terminado'],
         ];
 
-        $update =  $rep->update($infRep[0]['id_reporte'], $datos);
+        $update = $rep->update($id, $data);
+        $update = $model->update($id, $data);
+
+        if ($update != false) {
+            $data = $rep->where('id_reporte', $id)->first();
+            echo json_encode(array("status" => true, 'data' => $data));
+        } else {
+            echo json_encode(array("status" => false, 'data' => $data));
+        }
 
         return redirect()->to('Reportes/index');
     }
